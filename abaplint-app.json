@@ -1,0 +1,44 @@
+{
+  "$ref": "#/definitions/abaplintAppSchema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "abaplintAppSchema": {
+      "additionalProperties": false,
+      "properties": {
+        "configurations": {
+          "additionalProperties": {
+            "additionalProperties": false,
+            "properties": {
+              "annotations": {
+                "description": "Default enabled, set to false to disable annotations",
+                "type": "boolean"
+              },
+              "filename": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename"
+            ],
+            "type": "object"
+          },
+          "description": "List of configuration files to run, names and filenames, if empty or not specified the default abaplint.json is used. Configurations are processed in the order specified. Observations are reported based on the first configuration.",
+          "type": "object"
+        },
+        "crossCheck": {
+          "description": "Default enabled, set to false to disable cross check",
+          "type": "boolean"
+        },
+        "experimentalFeatures": {
+          "description": "Enable experimental features, enabled = true, disabled = false, default = false",
+          "type": "boolean"
+        },
+        "noArtifactsOkay": {
+          "description": "Do not report error if no ABAP artifacts found",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
